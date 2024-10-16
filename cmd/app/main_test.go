@@ -14,5 +14,10 @@ func TestMain(m *testing.M) {
 }
 
 func TestMainApp(t *testing.T) {
-	fmt.Printf("%s\n", string(exec.Command("pwd").Output()))	
+	out, err := exec.Command("pwd").Output()
+	if err != nil {
+		return 
+	}
+	
+	fmt.Printf("%s\n", out)
 }
